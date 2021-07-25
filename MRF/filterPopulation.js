@@ -13,7 +13,6 @@ raw.onload = function(){
   console.log(b);
 
   console.log("Countries that use USD as Currency")
-  var data = JSON.parse(this.response);
   var arr =[];
   var i =0;
   data.map((el)=> {
