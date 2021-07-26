@@ -20,23 +20,17 @@ raw.onload = function(){
     i++;
   })
 
-  var res = [];
-  var temp;
-  var k =0;
-  for(let j =0; j<arr.length; j++){
-    temp = (arr[j].currencies);
-    for(let l=0; l<temp.length; l++){
-      if(temp[l].code == "USD"){
-        res[k] = arr[j].name;
-        k++;
+  var res = data.filter((el)=> {
+    for(var i in el.currencies){
+      if(el.currencies[i].code === "USD"){
+        return true;
       }
     }
-    
-  }
+  });
   console.log(res);
 
   console.log("Total Population");
-  var d = data.map((el)=> el.population).reduce((a,b)=> a+b ,0);
+  var d = data.reduce((a, b)=> a+b.population ,0);
   console.log(d);
   
   document.getElementById("asiaContinent").innerHTML = a;
